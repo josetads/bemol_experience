@@ -1,0 +1,113 @@
+Validação dos Campos:
+
+Utilizar uma aplicação React:
+----------
+npx create-react-app form-validation
+cd form-validation
+----------
+
+Validando nome, e-mail e senha obrigatórios:
+----------
+<form>
+  <input required type="text" placeholder='name' />
+  <input required type="email" placeholder='email' />
+  <input required type="password" placeholder='password' minlength="8" />
+  <button type="submit">Submit</button>
+</form>
+----------
+
+
+Validação com Formik e Yup:
+----------
+import React from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as yup from "yup";
+----------
+
+O Yup deverá validar. lembrar de nomear dentro das melhores práticas.
+Para a nossa validação, ele será um objeto para e-mail e senha: 
+----------
+const validationSchema = yup.object({
+    email: yup
+      .string()
+      .email("Enter a valid email")
+      .required("Email is required"),
+    password: yup
+      .string()
+      .min(8, "Password minimum 8 characters")
+      .required("Password is required")
+  });
+  ----------
+  
+  A mensagem apareça embaixo do campo e não ao lado:
+  ----------
+  <Formik
+      initialValues={{ email: "", password: "" }}
+      validationSchema={validationSchema}
+    >
+      <div>
+        <h1>Login with Formik</h1>
+        <Form>
+          <div>
+            <Field type="email" name="email" placeholder="Email" />
+            <ErrorMessage component="div" name="email" />
+          </div>
+
+          <div>
+            <Field type="password" name="password" placeholder="Password" />
+            <ErrorMessage component="div" name="password" />
+          </div>
+
+          <button type="submit">Submit</button>
+        </Form>
+      </div>
+    </Formik>
+    ----------
+    
+   Resultado final:
+   ---------
+   import React from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as yup from "yup";
+
+function ExampleFormik() {
+  const validationSchema = yup.object({
+    email: yup
+      .string()
+      .email("Enter a valid email")
+      .required("Email is required"),
+    password: yup
+      .string()
+      .min(8, "Password minimum 8 characters")
+      .required("Password is required")
+  });
+
+  return (
+    <Formik
+      initialValues={{ email: "", password: "" }}
+      validationSchema={validationSchema}
+    >
+      <div>
+        <h1>Login with Formik</h1>
+        <Form>
+          <div>
+            <Field type="email" name="email" placeholder="Email" />
+            <ErrorMessage component="div" name="email" />
+          </div>
+
+          <div>
+            <Field type="password" name="password" placeholder="Password" />
+            <ErrorMessage component="div" name="password" />
+          </div>
+
+          <button type="submit">Submit</button>
+        </Form>
+      </div>
+    </Formik>
+  );
+}
+export default ExampleFormik;
+---------
+
+
+  
