@@ -1,0 +1,5 @@
+# bemol_experience
+Engenharia de Requisitos - Bemol Experience - Customização de Clientes!
+
+Soluçao para implementação de insights necessários para montar uma API (Via CEP), para preenchimentos automáticos de ENDEREÇOS, informando apenas o CEP da localização do Cliente, usuários da Bemol em quaisquer de seus canais de comunicação será premitida a interação com vendedores e os módulos do Sitema ERP, via web services e APIs.
+Validação de Campos e validação dos formatos dos dados.
