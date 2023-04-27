@@ -1,3 +1,210 @@
+JOSÉ OÍRIS INÁCIO DA COSTA
+
+Desafio - Bemol Digital
+
+R - 
+
+NOME DO PROJETO: BEMOL EXPERIENCE
+
+FEATURE: Criação de contas de usuário - Relacionamento com Clientes
+
+Para implementar essa feature, podemos utilizar a seguinte stack de tecnologia:
+
+LINGUAGEM DE PROGRAMAÇÃO: JavaScript/TypeScript
+
+Framework para o BACKEND: Node.js com o framework Express.js
+
+BANCO DE DADOS: MongoDB
+
+Biblioteca para interação com a API do ViaCEP: AXIOS
+
+Biblioteca para validação de dados: YUP
+
+* Os campos que devem ser utilizados para a identificação de pessoas podem incluir: nome completo, CPF, e-mail e número de telefone. 
+Além disso, podemos incluir campos opcionais, como data de nascimento e endereço completo, estes nao sendo campos obrigatórios.
+----
+A interface de interação para utilização da feature pode ser construída utilizando o framework React.js, com a biblioteca Formik para 
+gerenciamento de formulários e validação de dados. O usuário pode preencher os campos necessários para criação de conta e, ao inserir o CEP, 
+será feita uma requisição à API do ViaCEP para preencher automaticamente os campos de endereço (rua, bairro, cidade e estado). 
+Se o CEP for inválido, o usuário receberá um feedback informando sobre o erro.
+----
+Ao submeter o formulário, os dados do usuário serão salvos no banco de dados MongoDB, juntamente com um identificador único gerado
+automaticamente. Com essa implementação, será possível que o usuário inicie a interação em qualquer canal e continue a interação a partir de 
+qualquer outro canal, desde que utilize o mesmo e-mail ou número de telefone cadastrado na conta.
+----
+Essa feature pode ser expandida no futuro para incluir outros recursos, como login de usuários, recuperação de senha, edição de perfil, 
+entre outros.
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Passo-a-passo para execução do projeto:
+
+Clone o repositório do projeto do Github
+Instale o Node.js na versão 14 ou superior
+Instale o MongoDB Community Server
+Execute o MongoDB Community Server
+Acesse a pasta do projeto via terminal
+Execute o comando "npm install" para instalar as dependências
+Execute o comando "npm run start" para iniciar o servidor
+Acesse o endereço "http://localhost:3000" em um navegador web para acessar a interface de criação de conta
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Diagrama C4 Model da INFRAESTURURA necessária para suportar o produto de software:
+
+                    +-------------------------+
+                    |     Serviço de Email    |
+                    +-------------------------+
+                                    |
+                                    v
++------------------+       +------------------------+
+|   MongoDB        |       | Serviço de Autenticação|
++------------------+       +------------------------+
+                                    |
+                                    v
+                            +-------------+
+                            |   Servidor  |
+                            +-------------+
+                                    |
+                                    v
+                            +-------------+
+                            |   Clientes  |
+                            +-------------+
+
+
+
+
+Diagrama C4 Model do design da solução:
++-------------------+
+|     Controllers   |
++-------------------+
+           |
+           v
++-------------------+
+|       Routers     |
++-------------------+
+           |
+           v
++-------------------+
+|     Services      |
++-------------------+
+           |
+           v
++-------------------+
+|     Models        |
++-------------------+
+O diagrama apresenta a organização do software, onde cada elemento tem uma responsabilidade específica. 
+
+CONTROLLERS - lidam com as requisições feitas pelos clientes;
+
+ROUTERS - encaminham as requisições para os Controllers corretos, os: 
+
+SERVICES - processam a lógica de negócio, 
+
+MODELS - representam as ENTIDADES do BANCO DE DADOS.
+
+
+
+
+
+
+Segue abaixo o diagrama de DESIGN DA SOLUÇÃO utilizando a notação C4 Model para apresentar a organização do software:
+
+          +--------------------------+        
+          |   INTERFACE DO USUÁRIO   |        
+          +--------------------------+        
+                        |                       
+          +--------------------------+        
+          |         APLICAÇÃO        |        
+          +--------------------------+        
+                        |                       
+          +--------------------------+        
+          |      CAMADA DE DOMÍNIO   |        
+          +--------------------------+        
+                        |                       
+          +--------------------------+        
+          |      INFRAESTRUTURA      |        
+          +--------------------------+        
+                        |                       
+          +--------------------------+        
+          |     SERVIÇOS EXTERNOS    |        
+          +--------------------------+       
+ 
+INTERFACE DO USUÁRIO: camada responsável pela interação com o usuário, seja via web, mobile, ou qualquer outro canal disponibilizado pela empresa.
+
+APLICAÇÃO: camada responsável pela orquestração dos serviços da aplicação e comunicação entre as outras camadas.
+
+CAMADA DE DOMÍNIO: camada responsável pelas regras de negócio e lógica da aplicação.
+
+INFRAESTRUTURA: camada responsável pelas implementações técnicas como banco de dados, servidores, segurança, etc.
+
+SERVIÇOS EXTERNOS: camada responsável por integrações com serviços externos, como APIs de terceiros, serviços de pagamento, entre outros.
+Cada camada pode ser dividida em módulos ou pacotes específicos, dependendo da complexidade da solução e das necessidades de 
+organização e escalabilidade da aplicação.
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+QUESTÕES - Resolução
+
+1>
+A escolha de onde implantar a solução depende de vários fatores, como requisitos de segurança, custo, escalabilidade, manutenção e outras 
+considerações específicas do negócio. Não há uma resposta certa ou errada para essa pergunta, pois depende das necessidades e objetivos da 
+empresa.
+
+No entanto, é importante levar em consideração que, para atender à necessidade de unificar a experiência do cliente em todos os canais, 
+uma infraestrutura escalável é necessária. Em geral, soluções em nuvem oferecem mais escalabilidade e flexibilidade do que soluções on-premise, 
+pois permitem dimensionar os recursos facilmente de acordo com a demanda.
+
+Portanto, para garantir que a solução possa suportar a necessidade de todas as pessoas que consomem diariamente os serviços da empresa, 
+uma implantação em nuvem pode ser mais adequada. No entanto, é importante realizar uma análise detalhada para tomar a melhor decisão.
+
+
+2> 
+Existem várias ferramentas de controle de tarefas que podem ser utilizadas para gerenciar o desenvolvimento da solução por uma equipe de 
+4 pessoas. Algumas das ferramentas mais populares e eficazes incluem Jira, Trello, Asana e GitHub Projects.
+
+Todas essas ferramentas possuem recursos para criação de tarefas, atribuição de responsabilidades, acompanhamento do progresso e integração 
+com outras ferramentas comumente usadas no desenvolvimento de software, como Git e Slack. A escolha da ferramenta dependerá das preferências 
+e necessidades da equipe.
+
+Quanto à pergunta se a ferramenta é ágil, é importante observar que a agilidade não está necessariamente relacionada à ferramenta em si, 
+mas sim ao processo e cultura de desenvolvimento adotado pela equipe. Uma ferramenta ágil é aquela que oferece recursos para suportar 
+práticas ágeis, como Scrum ou Kanban, mas é possível adotar práticas ágeis mesmo sem usar uma ferramenta específica. Portanto, a agilidade 
+da equipe não está diretamente relacionada à escolha da ferramenta de controle de tarefas.
+
+
+3>
+É necessário ter habilidades interpessoais, experiência em gerenciamento de projetos, conhecimento técnico e outras habilidades relevantes.
+
+
+4>
+Com base na solução apresentada, sugiro uma possível melhoria na implementação de uma funcionalidade de chat em tempo real, que permita que 
+os usuários interajam diretamente com os atendentes em diferentes canais.
+
+Essa funcionalidade poderia ser implementada por meio de uma API de chat em tempo real, que permitiria a comunicação bidirecional entre
+os usuários e os atendentes em diferentes canais. Isso permitiria uma experiência mais fluida e interativa para os usuários e também 
+melhoraria a eficiência dos atendentes em responder às solicitações dos usuários.
+
+Além disso, seria possível implementar recursos de análise de dados para monitorar e analisar a interação do usuário em todos os canais. 
+Isso forneceria informações valiosas para melhorar a experiência do usuário e também identificar possíveis pontos de melhoria no sistema. 
+
+
+5>
+Sim, considero este desafio válido para um processo seletivo, pois apresenta um problema real que precisa ser resolvido e requer habilidades 
+técnicas específicas para implementar a solução. Além disso, o desafio permite avaliar a capacidade do candidato em entender o problema 
+apresentado, desenvolver uma solução eficiente, documentar e comunicar suas ideias.
+
+O desafio também permite avaliar a criatividade e o pensamento crítico do candidato, pois é possível sugerir melhorias ou ideias adicionais 
+para a solução apresentada, demonstrando a capacidade de ir além do que foi solicitado.
+
+Em resumo, este desafio pode ser uma forma eficaz de avaliar as habilidades e competências técnicas e comportamentais dos candidatos, 
+permitindo que a empresa escolha o melhor perfil para a vaga em questão.
+
 
 
 
